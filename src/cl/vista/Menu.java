@@ -97,8 +97,8 @@ public class Menu {
 	
 	public void listarCliente() throws IOException {
 		System.out.println("-----------------Datos del Cliente----------------");
-		//ClienteServicio sc = new ClienteServicio();
-		//sc.retornoListarClientes(clientes);
+		ClienteServicio sc = new ClienteServicio();
+		sc.retornoListarClientes();
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();

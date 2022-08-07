@@ -1,6 +1,7 @@
 package cl.servicio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import cl.modelo.Cliente;
 
@@ -28,12 +29,26 @@ public class ClienteServicio {
 
 
 		//metodo recorre listaclientes y muestra
-		public void retornoListarClientes(ArrayList<Cliente> clientes) {
+		public void retornoListarClientes() {
 			
-			for(Cliente cliente: clientes) {
-				System.out.println("Nombre: "+ cliente.getNombreCliente()+" Apellido: "+ cliente.getApellidoCliente()+" Rut: "+ cliente.getRunCliente()+" Edad: "+ cliente.getAniosCliente()+ " Estado: "+cliente.getNombreCategoria());
-				System.out.println();				
+			for(Iterator<Cliente> iterador = getListaClientes().iterator(); iterador.hasNext();) {
+				Cliente cliente = (Cliente)iterador.next();
+				System.out.println("PRODUCTO");
+				System.out.println("Run del Cliente: "+ cliente.getRunCliente());
+				System.out.println("Precio: "+ cliente.getNombreCliente());
+				System.out.println("Descripcion: "+ cliente.getApellidoCliente());
+				System.out.println("Codigo: "+ cliente.getAniosCliente());
+				System.out.println("Talla: "+ cliente.getNombreCategoria());
+
 			}
+			
+			/*
+			 * for(Cliente cliente: clientes) { System.out.println("Nombre: "+
+			 * cliente.getNombreCliente()+" Apellido: "+
+			 * cliente.getApellidoCliente()+" Rut: "+ cliente.getRunCliente()+" Edad: "+
+			 * cliente.getAniosCliente()+ " Estado: "+cliente.getNombreCategoria());
+			 * System.out.println(); }
+			 */
 			 
 		}
 		public void crearCliente(Cliente cliente) {
