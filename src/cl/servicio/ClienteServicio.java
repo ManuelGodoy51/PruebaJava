@@ -31,14 +31,12 @@ public class ClienteServicio {
 		public void retornoListarClientes(ArrayList<Cliente> clientes) {
 			
 			for(Cliente cliente: clientes) {
-				
-				
 				System.out.println("Nombre: "+ cliente.getNombreCliente()+" Apellido: "+ cliente.getApellidoCliente()+" Rut: "+ cliente.getRunCliente()+" Edad: "+ cliente.getAniosCliente()+ " Estado: "+cliente.getNombreCategoria());
-				System.out.println();
-				
-				
+				System.out.println();				
 			}
 			 
 		}
-
+		public void crearCliente(Cliente cliente) {
+			listaClientes.add(cliente);
+		} 
 }

@@ -34,22 +34,16 @@ public class Menu {
 	public Menu() {
 	}
 
-	public Menu(ClienteServicio clienteServicio, ArchivoServicio archivoServicio, ExportadorCsv exportarCsv,
-			ExportadorTxt exportarTxt, String fileName, String fileName1, Utilidad utilidad, Scanner leer, int opcion,
-			String respuesta, String ruta) {
-		//super();
-		this.clienteServicio = clienteServicio;
-		this.archivoServicio = archivoServicio;
-		this.exportarCsv = exportarCsv;
-		this.exportarTxt = exportarTxt;
-		this.fileName = fileName;
-		this.fileName1 = fileName1;
-		this.utilidad = utilidad;
-		this.leer = leer;
-		this.opcion = opcion;
-		this.respuesta = respuesta;
-		this.ruta = ruta;
-	}
+	/*
+	 * public Menu(ClienteServicio clienteServicio, ArchivoServicio archivoServicio,
+	 * ExportadorCsv exportarCsv, ExportadorTxt exportarTxt, String fileName, String
+	 * fileName1, Utilidad utilidad, Scanner leer, int opcion, String respuesta,
+	 * String ruta) { //super(); this.clienteServicio = clienteServicio;
+	 * this.archivoServicio = archivoServicio; this.exportarCsv = exportarCsv;
+	 * this.exportarTxt = exportarTxt; this.fileName = fileName; this.fileName1 =
+	 * fileName1; this.utilidad = utilidad; this.leer = leer; this.opcion = opcion;
+	 * this.respuesta = respuesta; this.ruta = ruta; }
+	 */
 	
 	
 	public void iniciarMenu() throws IOException {
@@ -124,14 +118,13 @@ public class Menu {
 		String edad = leer.next();
 		
 		System.out.println("-----------------------------------------------");
-
-		//Cliente cliente = new Cliente(rut, nombre, apellido, edad, CategoriaEnum.ACTIVO);
-
-		//clientes.add(cliente);
-		// System.out.print(clientes);
-		//ClienteServicio scc = new ClienteServicio();
-		//scc.setListaClientes(clientes);
-		//System.out.println(cliente.toString());
+		Cliente cliente = new Cliente();
+		cliente.setRunCliente(rut);
+		cliente.setNombreCliente(nombre);
+		cliente.setApellidoCliente(apellido);
+		cliente.setAniosCliente(edad);
+		cliente.setNombreCategoria(CategoriaEnum.ACTIVO);
+		
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
@@ -342,10 +335,11 @@ public class Menu {
 				System.out.println("------------------Exportar Datos en Linux o MAC------------------------");
 				System.out.println("Ingresa la ruta en donde se desea exportar el archivo clientes.csv: ");
 				ruta = leer.next().toString();
-				/*ExportadorCsv ecsv = new ExportadorCsv();
+				ExportadorCsv ecsv = new ExportadorCsv();
 				ecsv.crearCarpeta(ruta);
 				ecsv.crearArchivo(ruta+"/"+fileName+".csv");
-				ecsv.exportar(ruta+"/"+fileName+".csv", clientes);*/
+				ClienteServicio clienteS = new ClienteServicio();
+				ecsv.exportar(ruta+"/"+fileName+".csv", clienteS.getListaClientes());
 				utilidad.tiempoEspera();
 				utilidad.limpieza();
 				System.out.println("Datos de Clientes exoportados correctamente en formato csv.");
