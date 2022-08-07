@@ -33,13 +33,14 @@ public class ClienteServicio {
 			
 			for(Iterator<Cliente> iterador = getListaClientes().iterator(); iterador.hasNext();) {
 				Cliente cliente = (Cliente)iterador.next();
-				System.out.println("PRODUCTO");
+				System.out.println("--------------------------------------------------------------");
+				System.out.println("Datos del cliente");
 				System.out.println("Run del Cliente: "+ cliente.getRunCliente());
-				System.out.println("Precio: "+ cliente.getNombreCliente());
-				System.out.println("Descripcion: "+ cliente.getApellidoCliente());
-				System.out.println("Codigo: "+ cliente.getAniosCliente());
-				System.out.println("Talla: "+ cliente.getNombreCategoria());
-
+				System.out.println("Nombre del cliente: "+ cliente.getNombreCliente());
+				System.out.println("Apellido del cliente: "+ cliente.getApellidoCliente());
+				System.out.println("Años como cliente: "+ cliente.getAniosCliente());
+				System.out.println("Categoria del cliente: "+ cliente.getNombreCategoria());
+				System.out.println("--------------------------------------------------------------");
 			}
 			
 			/*
