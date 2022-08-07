@@ -10,15 +10,17 @@ import java.util.List;
 import cl.modelo.Cliente;
 import cl.servicio.Exportador;
 
-public class ExportadorCsv extends Exportador{
-
-	public ExportadorCsv(List<Cliente> listaClientes) {
+public class ExportadorTxt extends Exportador{
+	//String nombreArchivo = "Cliente.txt";
+	public ExportadorTxt(List<Cliente> listaClientes) {
 		super(listaClientes);
 		// TODO Auto-generated constructor stub
 	}
-	public ExportadorCsv() {
+	
+	public ExportadorTxt() {
 		
 	}
+	
 	@Override
 	public void exportar(String nombreArchivo, List<Cliente> listaClientes) throws IOException {
 		// TODO Auto-generated method stub
@@ -72,4 +74,6 @@ public class ExportadorCsv extends Exportador{
 			}
 		}
 	}
+	
 }
+

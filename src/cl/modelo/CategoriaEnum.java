@@ -1,5 +1,5 @@
 package cl.modelo;
 
-public class CategoriaEnum {
-
+public enum CategoriaEnum {
+	ACTIVO, INACTIVO;
 }
