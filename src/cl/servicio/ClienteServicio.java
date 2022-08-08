@@ -7,6 +7,7 @@ import java.util.List;
 import cl.modelo.CategoriaEnum;
 import cl.modelo.Cliente;
 
+
 public class ClienteServicio {
 	//creacion de lista
 		
@@ -33,22 +34,21 @@ public class ClienteServicio {
 
 		//metodo recorre listaclientes y muestra
 		public void retornoListarClientes() {
-			
-			
-			Iterator<Cliente> it = listaClientes.iterator();
-			
-			while(it.hasNext()) {
-				System.out.println(it.next());
+			for(Iterator<Cliente> iterador = getListaClientes().iterator(); iterador.hasNext();) {
+				Cliente cliente = (Cliente)iterador.next();
+				System.out.println("Rut del Cliente: "+ cliente.getRunCliente());
+				System.out.println("Nombre del cliente: "+ cliente.getNombreCliente());
+				System.out.println("Apellido del cliente: " + cliente.getApellidoCliente());
+				System.out.println("Años como cliente: "+ cliente.getAniosCliente());
+				System.out.println("Estado del cliente: "+ cliente.getNombreCategoria());
+				System.out.println("--------------------------------------------------------------");
 			}
+			
+			
 			 
 		}
 		public void crearCliente(String run, String nombre, String apellido, String anio) {
 			Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, CategoriaEnum.ACTIVO);
 			listaClientes.add(modeloclientes);
-			
-			//System.out.println(cliente);
-			
-			//listaClientes.add(cliente);
-			//System.out.println(listaClientes);
 		} 
 }
