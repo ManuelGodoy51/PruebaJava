@@ -8,4 +8,5 @@ public enum CategoriaEnum {
         } else {
             return INACTIVO;
         }
-    }
+	}
+}
