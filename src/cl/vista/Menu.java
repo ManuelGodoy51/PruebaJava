@@ -24,7 +24,7 @@ public class Menu {
 	private String fileName1 = "DBClientes.csv";
 	
 	Utilidad utilidad = new Utilidad();
-	
+	Cliente cliente = new Cliente();
 	Scanner leer = new Scanner(System.in);
 	int opcion = 0;
 	String respuesta;
@@ -97,8 +97,9 @@ public class Menu {
 	
 	public void listarCliente() throws IOException {
 		System.out.println("-----------------Datos del Cliente----------------");
-		ClienteServicio sc = new ClienteServicio();
-		sc.retornoListarClientes();
+		/*ClienteServicio sc = new ClienteServicio();
+		sc.retornoListarClientes();*/
+		System.out.println(cliente.toString());
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
@@ -118,13 +119,13 @@ public class Menu {
 		String edad = leer.next();
 		
 		System.out.println("-----------------------------------------------");
-		Cliente cliente = new Cliente();
+		//Cliente cliente = new Cliente();
 		cliente.setRunCliente(rut);
 		cliente.setNombreCliente(nombre);
 		cliente.setApellidoCliente(apellido);
 		cliente.setAniosCliente(edad);
 		cliente.setNombreCategoria(CategoriaEnum.ACTIVO);
-		
+		System.out.println(cliente.toString());
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
