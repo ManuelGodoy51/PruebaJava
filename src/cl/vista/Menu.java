@@ -160,8 +160,23 @@ public class Menu {
 			System.out.println("1.-Linux o Mac");
 			System.out.println("2.-Windows");
 			System.out.println("Ingrese Opcion: ");
-			opcion = leer.nextInt();
+			
 			do {
+				try {
+					opcion = leer.nextInt();
+					valid=true;
+					if(opcion<0||opcion>2) {
+						System.out.println("La opcion ingresada sale del parametro");
+						System.out.println("Intente nuevamente");
+					}
+				}catch(Exception e) {
+					valid=false;
+					System.out.println("El dato ingresado no es valido");
+					System.out.println("Intente nuevamente");
+					leer.next();
+				}
+			}while(opcion<0||opcion>2||valid==false);
+			
 				switch (opcion) {
 				case 1:
 					System.out.println("-----------Cargar Datos en Linux o MAC--------------");
@@ -193,7 +208,7 @@ public class Menu {
 					utilidad.mostrarMensaje();
 					break;
 				}
-			} while (opcion != 2);
+			
 
 			System.out.println("Datos Cargados Correctamente");
 		}// cierre del metodo importar
@@ -204,8 +219,23 @@ public class Menu {
 		System.out.println("1.-Formato csv");
 		System.out.println("2.-Formato txt");
 		System.out.println("Ingrese una opción para exportar: ");
-		opcion = leer.nextInt();
+		
 		do {
+			try {
+				opcion = leer.nextInt();
+				valid=true;
+				if(opcion<1||opcion>2) {
+					System.out.println("La opcion ingresada sale del parametro");
+					System.out.println("Intente nuevamente");
+				}
+			}catch(Exception e) {
+				valid = false;
+				System.out.println("La opcion ingresada no es valida");
+				System.out.println("Intente nuevamente");
+				leer.next();
+			}
+		}while(opcion<0||opcion>2||valid==false);
+		
 			switch (opcion) {
 			case 1:
 				System.out.println("------------------Exportar Datos en Linux o MAC------------------------");
@@ -241,7 +271,7 @@ public class Menu {
 				utilidad.mostrarMensaje();
 				break;
 			}
-		} while (opcion != 2);
+		
 
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
