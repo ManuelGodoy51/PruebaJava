@@ -175,7 +175,23 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 					opcion2 = leer.nextInt();
 					System.out.println("-------------------------------------------");
 					do {
+						try {
+							opcion2 = leer.nextInt();
+							valid = true;
+							if(opcion2<1||opcion2>4) {
+								System.out.println("El dato ingresado sale del parametro");
+								System.out.println("Intente nuevamente");
+							}
+						}catch(Exception e) {
+							valid = false;
+							System.out.println("El dato ingresado no es valido");
+							System.out.println("Intente nuevamente");
+							leer.next();
+						}
+					} while (opcion2 < 1 || opcion2 > 4||valid==false);
+					
 						switch (opcion2) {
+						
 						case 1:
 							System.out.println("1.- Ingrese nuevo RUN del Cliente: ");
 							respuesta = leer.next();
@@ -206,7 +222,7 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 							System.out.println("Opcion no valida");
 							break;
 						}
-					} while (opcion2 < 1 || opcion2 > 4);
+					
 					System.out.println("salir");
 					System.out.println("-------------------------------------------");
 					utilidad.limpieza();
