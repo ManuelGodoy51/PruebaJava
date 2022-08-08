@@ -172,7 +172,7 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 					System.out.println("3.- El Apellido del Cliente es: " + cliente.getApellidoCliente());
 					System.out.println("4.- Los años del Cliente son: " + cliente.getAniosCliente());
 					System.out.println("Ingrese opcion a editar: ");
-					opcion2 = leer.nextInt();
+					
 					System.out.println("-------------------------------------------");
 					do {
 						try {
