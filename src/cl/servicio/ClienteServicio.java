@@ -49,6 +49,8 @@ public class ClienteServicio {
 		}
 		public void crearCliente(String run, String nombre, String apellido, String anio) {
 			Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, CategoriaEnum.ACTIVO);
+			Cliente modeloClienteNull = new Cliente(null, null, null, null,null);
 			listaClientes.add(modeloclientes);
+			listaClientes.add(modeloClienteNull);
 		} 
 }
