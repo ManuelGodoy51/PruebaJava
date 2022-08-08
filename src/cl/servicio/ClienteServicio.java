@@ -38,7 +38,6 @@ public class ClienteServicio {
 		this.listaClientes = listaClientes;
 	}
 
-	// metodo recorre listaclientes y muestra
 	public void retornoListarClientes() {
 		for (Iterator<Cliente> iterador = getListaClientes().iterator(); iterador.hasNext();) {
 			Cliente cliente = (Cliente) iterador.next();
@@ -63,7 +62,8 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 			
 			Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, enum1);
 			listaClientes.add(modeloclientes);
-			//System.out.println(listaClientes);
+			
+			System.out.println(listaClientes);
 			
 		}
 		
@@ -71,34 +71,12 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 	} 
 
 
-	public void retornoListaImportado(List<Cliente> lista2) {
-		
-		for (Iterator<Cliente> iterador =lista2.iterator(); iterador.hasNext();) {
-			Cliente cliente2 = (Cliente) iterador.next();
-			String rutImp = cliente2.getRunCliente();
-			String nombreImp = cliente2.getNombreCliente();
-			String apellidoImp = cliente2.getApellidoCliente();
-			String aniosImp = cliente2.getAniosCliente();
-			CategoriaEnum CategoriaImp = cliente2.getNombreCategoria();
-			
-			modeloclientes.setRunCliente(rutImp);
-			modeloclientes.setNombreCliente(nombreImp);
-			modeloclientes.setApellidoCliente(apellidoImp);
-			modeloclientes.setAniosCliente(aniosImp);
-			modeloclientes.setNombreCategoria(CategoriaImp);
-			
-		}
 	
-		String rut = modeloclientes.getRunCliente();
-		String nombre = modeloclientes.getNombreCliente();
-		String apellido = modeloclientes.getApellidoCliente();
-		String aniosCliente = modeloclientes.getAniosCliente();
-		CategoriaEnum categoriaImportada = modeloclientes.getNombreCategoria();
-		
-		Cliente modeloC = new Cliente(rut, nombre, apellido, aniosCliente, categoriaImportada);
-		listaClientes.add(modeloC);
-		
-	}
+	  public void retornoListaImportado(Cliente clienteImportado) {
+		  listaClientes.add(clienteImportado);
+	  
+	  }
+	 
 
 	public void retornoEditarCliente() {
 

@@ -11,6 +11,8 @@ import cl.modelo.Cliente;
 import cl.servicio.ArchivoServicio;
 import cl.servicio.ClienteServicio;
 
+import cl.servicio.ClienteServicio;
+
 public class ImportarDatos extends ArchivoServicio{
 	ClienteServicio clienteServicio = new ClienteServicio();
 	public ImportarDatos(List<Cliente> listaClientes) {
@@ -51,37 +53,8 @@ public class ImportarDatos extends ArchivoServicio{
 
 					  String[] lista = contenidoArchivo.split(",");
 
-					  Cliente cl = new Cliente();
-					  
-					  String rut = lista[0];
-					  String nombre = lista[1];
-					  String apellido = lista[2];
-					  String anio = lista[3];
-					  String NombreCategoria = lista[4].trim();
-					  
-					  //System.out.println(NombreCategoria);
-
-					  if(NombreCategoria.equalsIgnoreCase("Activo")) {
-						  Cliente clientes = new Cliente(rut, nombre, apellido, anio, CategoriaEnum.ACTIVO);
-						  //clienteServicio.crearCliente(rut, nombre, apellido, anio, CategoriaEnum.ACTIVO);
-						  List<Cliente> listaClientes = new ArrayList<>();
-						  listaClientes.add(clientes);
-						  //System.out.println(listaClientes);
-
-						  clienteServicio.retornoListaImportado(listaClientes);
-						  
-						  
-					  }else {
-						  Cliente clientes = new Cliente(rut, nombre, apellido,anio, CategoriaEnum.INACTIVO);
-						  //clienteServicio.crearCliente(rut, nombre, apellido, anio, CategoriaEnum.INACTIVO);
-						  List<Cliente> listaClientes = new ArrayList<>();
-						  listaClientes.add(clientes);
-						  //System.out.println(listaClientes);
-						  
-						  clienteServicio.retornoListaImportado(listaClientes);
-					  }
-
 					  contenidoArchivo = memoriaLectura.readLine();
+					  clienteServicio.crearCliente(lista[0].trim(), lista[1].trim(), lista[2].trim(), lista[3].trim(), CategoriaEnum.ACTIVO);
 				}
 				memoriaLectura.close();
 	}
