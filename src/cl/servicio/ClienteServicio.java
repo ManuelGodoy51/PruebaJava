@@ -143,8 +143,25 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 					System.out.println("1 - Si");
 					System.out.println("2 - No");
 					System.out.println("Ingrese opcion: ");
-					opcion = leer.nextInt();
+					
+					
+					
 					do {
+						try {
+							opcion = leer.nextInt();
+							valid = true;
+							if(opcion<1||opcion>2) {
+								System.out.println("La opcion ingresada sale del parametro");
+								System.out.println("Ingrese nuevamente");
+							}
+						}catch(Exception e) {
+							valid = false;
+							System.out.println("El dato ingresado no es valido");
+							System.out.println("Intente nuevamente");
+							leer.next();
+						}
+					 }while (opcion < 1 || opcion > 2||valid==false);
+						
 						switch (opcion) {
 						case 1:
 
@@ -168,7 +185,7 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 							utilidad.mostrarMensaje();
 							break;
 						}
-					} while (opcion < 1 || opcion > 2);
+					
 					utilidad.tiempoEspera();
 					utilidad.limpieza();
 					break;
