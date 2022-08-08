@@ -115,7 +115,7 @@ public class Menu {
 		System.out.println("-----------------Datos del Cliente----------------");
 		
 		clienteServicio.retornoListarClientes();
-		//System.out.println(cliente.toString());
+		//System.out.println(clienteServicio.getListaClientes());
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
