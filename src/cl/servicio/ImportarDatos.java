@@ -53,32 +53,32 @@ public class ImportarDatos extends ArchivoServicio{
 
 					  Cliente cl = new Cliente();
 					  
-					  String run = lista[0];
+					  String rut = lista[0];
 					  String nombre = lista[1];
 					  String apellido = lista[2];
 					  String anio = lista[3];
 					  String NombreCategoria = lista[4].trim();
 					  
 					  //System.out.println(NombreCategoria);
-					  
-					  if(NombreCategoria.equalsIgnoreCase("Activo")) {
-						  Cliente clientes = new Cliente(run, nombre, apellido, anio, CategoriaEnum.ACTIVO);
-						  clienteServicio.crearCliente(run, nombre, apellido, anio, CategoriaEnum.ACTIVO);
-						  List<Cliente> listaClientes = new ArrayList<>();
-						  listaClientes.add(clientes);
-						  System.out.println(listaClientes);
 
-						  //clienteServicio.setListaClientes(listaClientes);
-						  
-						  
-					  }else{
-						  Cliente clientes = new Cliente(run, nombre, apellido,anio, CategoriaEnum.INACTIVO);
-						  clienteServicio.crearCliente(run, nombre, apellido, anio, CategoriaEnum.INACTIVO);
+					  if(NombreCategoria.equalsIgnoreCase("Activo")) {
+						  Cliente clientes = new Cliente(rut, nombre, apellido, anio, CategoriaEnum.ACTIVO);
+						  //clienteServicio.crearCliente(rut, nombre, apellido, anio, CategoriaEnum.ACTIVO);
 						  List<Cliente> listaClientes = new ArrayList<>();
 						  listaClientes.add(clientes);
-						  System.out.println(listaClientes);
+						  //System.out.println(listaClientes);
+
+						  clienteServicio.retornoListaImportado(listaClientes);
 						  
-						  //clienteServicio.setListaClientes(listaClientes);
+						  
+					  }else {
+						  Cliente clientes = new Cliente(rut, nombre, apellido,anio, CategoriaEnum.INACTIVO);
+						  //clienteServicio.crearCliente(rut, nombre, apellido, anio, CategoriaEnum.INACTIVO);
+						  List<Cliente> listaClientes = new ArrayList<>();
+						  listaClientes.add(clientes);
+						  //System.out.println(listaClientes);
+						  
+						  clienteServicio.retornoListaImportado(listaClientes);
 					  }
 
 					  contenidoArchivo = memoriaLectura.readLine();
