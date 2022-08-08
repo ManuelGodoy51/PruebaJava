@@ -55,8 +55,8 @@ public void crearCliente(String run, String nombre, String apellido, String anio
 		
 		
 		if(run.equals(null) && nombre.equals(null) && apellido.equals(null) && anio.equals(null)) {
-			System.out.println("entro aca");
-			Cliente modeloClienteNulo = new Cliente(null,null,null,null,null);
+			System.out.println("No se aceptan datos Nulos");
+			//Cliente modeloClienteNulo = new Cliente(null,null,null,null,null);
 			//System.out.println(modeloClienteNulo);
 		}else {
 			
