@@ -9,6 +9,7 @@ import cl.utitlidades.Utilidad;
 
 public class ClienteServicio {
 	// creacion de lista
+	boolean valid=true;
 	String respuesta;
 	int opcion = 0;
 	int opcion2 = 0;
@@ -79,7 +80,10 @@ public class ClienteServicio {
 	public void retornoEditarCliente() {
 
 		System.out.println("Ingrese RUN del Cliente a editar:");
-		respuesta = leer.next();
+		
+		
+			respuesta = leer.next();
+			
 
 		Cliente cliente = buscarClientePorRun(respuesta);
 
@@ -94,8 +98,20 @@ public class ClienteServicio {
 				System.out.println("1.-Cambiar el estado del Cliente");
 				System.out.println("2.-Editar los datos ingresados del Cliente");
 				System.out.println("Ingrese opcion: ");
+				try {
+					opcion = leer.nextInt();
+					valid = true;
+					if(opcion<0||opcion>2) {
+						System.out.println("La respuesta sale del parametro");
+						System.out.println("Ingrese nuevamente");
+					}
+				}catch(Exception e) {
+					valid=false;
+					System.out.println("dato ingresado no es valido");
+					System.out.println("Ingrese nuevamente");
+					leer.next();
+				}
 				
-				opcion = leer.nextInt();
 				switch (opcion) {
 				case 1:
 					System.out.println("------Actualizando estado del Cliente ");
