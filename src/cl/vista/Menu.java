@@ -15,11 +15,10 @@ import cl.servicio.ExportadorTxt;
 
 
 public class Menu {
-	
-	ClienteServicio clienteServicio;
-	ArchivoServicio archivoServicio;
-	ExportadorCsv exportarCsv;
-	ExportadorTxt exportarTxt;
+	ClienteServicio clienteServicio = new ClienteServicio();
+	//ArchivoServicio archivoServicio = new ArchivoServicio();;
+	ExportadorCsv exportarCsv =new ExportadorCsv();
+	ExportadorTxt exportarTxt = new ExportadorTxt();
 	private String fileName = "Clientes";
 	private String fileName1 = "DBClientes.csv";
 	
@@ -97,9 +96,9 @@ public class Menu {
 	
 	public void listarCliente() throws IOException {
 		System.out.println("-----------------Datos del Cliente----------------");
-		/*ClienteServicio sc = new ClienteServicio();
-		sc.retornoListarClientes();*/
-		System.out.println(cliente.toString());
+		
+		clienteServicio.retornoListarClientes();
+		//System.out.println(cliente.toString());
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
@@ -119,13 +118,8 @@ public class Menu {
 		String edad = leer.next();
 		
 		System.out.println("-----------------------------------------------");
-		//Cliente cliente = new Cliente();
-		cliente.setRunCliente(rut);
-		cliente.setNombreCliente(nombre);
-		cliente.setApellidoCliente(apellido);
-		cliente.setAniosCliente(edad);
-		cliente.setNombreCategoria(CategoriaEnum.ACTIVO);
-		System.out.println(cliente.toString());
+
+		clienteServicio.crearCliente(rut, nombre, apellido, edad);;
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
