@@ -16,7 +16,7 @@ import cl.servicio.ExportadorTxt;
 
 public class Menu {
 	ClienteServicio clienteServicio = new ClienteServicio();
-	//ArchivoServicio archivoServicio = new ArchivoServicio();;
+	ImportarDatos importarDatos = new ImportarDatos();
 	ExportadorCsv exportarCsv =new ExportadorCsv();
 	ExportadorTxt exportarTxt = new ExportadorTxt();
 	private String fileName = "Clientes";
@@ -119,7 +119,7 @@ public class Menu {
 		
 		System.out.println("-----------------------------------------------");
 
-		clienteServicio.crearCliente(rut, nombre, apellido, edad);;
+		clienteServicio.crearCliente(rut, nombre, apellido, edad, CategoriaEnum.ACTIVO);
 		utilidad.tiempoEspera();
 		utilidad.limpieza();
 		utilidad.tiempoEspera();
@@ -294,13 +294,13 @@ public class Menu {
 					System.out.println("-----------Cargar Datos en Windows--------------");
 					System.out.println("Ingresa la ruta en donde se encuentra el archivo DBClientes.csv: ");
 					ruta = leer.next();
-					/*ImportarDatos imp = new ImportarDatos();
+					
 					try {
-						imp.cargarDatos(ruta+"/"+fileName1);
+						importarDatos.cargarDatos(ruta+"/"+fileName1);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}*/
+					}
 					
 					utilidad.tiempoEspera();
 					utilidad.limpieza();
@@ -333,8 +333,8 @@ public class Menu {
 				ExportadorCsv ecsv = new ExportadorCsv();
 				ecsv.crearCarpeta(ruta);
 				ecsv.crearArchivo(ruta+"/"+fileName+".csv");
-				ClienteServicio clienteS = new ClienteServicio();
-				ecsv.exportar(ruta+"/"+fileName+".csv", clienteS.getListaClientes());
+				
+				ecsv.exportar(ruta+"/"+fileName+".csv", clienteServicio.getListaClientes());
 				utilidad.tiempoEspera();
 				utilidad.limpieza();
 				System.out.println("Datos de Clientes exoportados correctamente en formato csv.");
@@ -346,10 +346,10 @@ public class Menu {
 				System.out.println("Ingresa la ruta en donde se desea exportar el archivo clientes.txt: ");
 				//Scanner ss = new Scanner();
 				ruta = leer.next().toString();
-				/*ExportadorTxt ett = new ExportadorTxt();
+				ExportadorTxt ett = new ExportadorTxt();
 				ett.crearCarpeta(ruta);
 				ett.crearArchivo(ruta+"/"+fileName+".txt");
-				ett.exportar(ruta+"/"+fileName+".txt", clientes);*/
+				ett.exportar(ruta+"/"+fileName+".txt", clienteServicio.getListaClientes());
 				utilidad.tiempoEspera();
 				utilidad.limpieza();
 				System.out.println("Datos de Clientes exoportados correctamente en formato txt.");
