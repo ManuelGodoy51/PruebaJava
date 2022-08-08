@@ -54,7 +54,7 @@ public class ImportarDatos extends ArchivoServicio{
 					  String[] lista = contenidoArchivo.split(",");
 
 					  contenidoArchivo = memoriaLectura.readLine();
-					  clienteServicio.crearCliente(lista[0].trim(), lista[1].trim(), lista[2].trim(), lista[3].trim(), CategoriaEnum.ACTIVO);
+					  clienteServicio.crearCliente(lista[0].trim(), lista[1].trim(), lista[2].trim(), lista[3].trim(), CategoriaEnum.parse(lista[4].trim()));
 				}
 				memoriaLectura.close();
 	}
