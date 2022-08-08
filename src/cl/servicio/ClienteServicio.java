@@ -61,7 +61,8 @@ public class ClienteServicio {
 	}
 
 	public void retornoListaImportado(List<Cliente> lista2) {
-		// System.out.println(lista2);
+		
+		
 
 	}
 
@@ -185,6 +186,7 @@ public class ClienteServicio {
 
 	}
 
+	
 	private Cliente buscarClientePorRun(String rutCliente) {// compara rut con arreglo
 
 		for (Cliente cliente : this.listaClientes) {
