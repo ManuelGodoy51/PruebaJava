@@ -9,12 +9,12 @@ import cl.utitlidades.Utilidad;
 
 public class ClienteServicio {
 	// creacion de lista
-	boolean valid=true;
+    boolean valid=true;
 	String respuesta;
 	int opcion = 0;
 	int opcion2 = 0;
 	Scanner leer = new Scanner(System.in);
-
+	Cliente modeloclientes = new Cliente();
 	Utilidad utilidad = new Utilidad();
 
 	List<Cliente> listaClientes = new ArrayList<>();
@@ -52,18 +52,18 @@ public class ClienteServicio {
 
 	}
 
-	public void crearCliente(String run, String nombre, String apellido, String anio, CategoriaEnum enum1) {
+public void crearCliente(String run, String nombre, String apellido, String anio, CategoriaEnum enum1) {
 		
 		
 		if(run.equals(null) && nombre.equals(null) && apellido.equals(null) && anio.equals(null)) {
 			System.out.println("entro aca");
 			Cliente modeloClienteNulo = new Cliente(null,null,null,null,null);
-			System.out.println(modeloClienteNulo);
+			//System.out.println(modeloClienteNulo);
 		}else {
 			
 			Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, enum1);
 			listaClientes.add(modeloclientes);
-			
+			//System.out.println(listaClientes);
 			
 		}
 		
@@ -73,8 +73,31 @@ public class ClienteServicio {
 
 	public void retornoListaImportado(List<Cliente> lista2) {
 		
+		for (Iterator<Cliente> iterador =lista2.iterator(); iterador.hasNext();) {
+			Cliente cliente2 = (Cliente) iterador.next();
+			String rutImp = cliente2.getRunCliente();
+			String nombreImp = cliente2.getNombreCliente();
+			String apellidoImp = cliente2.getApellidoCliente();
+			String aniosImp = cliente2.getAniosCliente();
+			CategoriaEnum CategoriaImp = cliente2.getNombreCategoria();
+			
+			modeloclientes.setRunCliente(rutImp);
+			modeloclientes.setNombreCliente(nombreImp);
+			modeloclientes.setApellidoCliente(apellidoImp);
+			modeloclientes.setAniosCliente(aniosImp);
+			modeloclientes.setNombreCategoria(CategoriaImp);
+			
+		}
+	
+		String rut = modeloclientes.getRunCliente();
+		String nombre = modeloclientes.getNombreCliente();
+		String apellido = modeloclientes.getApellidoCliente();
+		String aniosCliente = modeloclientes.getAniosCliente();
+		CategoriaEnum categoriaImportada = modeloclientes.getNombreCategoria();
 		
-
+		Cliente modeloC = new Cliente(rut, nombre, apellido, aniosCliente, categoriaImportada);
+		listaClientes.add(modeloC);
+		
 	}
 
 	public void retornoEditarCliente() {
