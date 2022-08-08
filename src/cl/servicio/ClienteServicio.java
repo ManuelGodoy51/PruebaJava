@@ -52,12 +52,23 @@ public class ClienteServicio {
 	}
 
 	public void crearCliente(String run, String nombre, String apellido, String anio, CategoriaEnum enum1) {
-		Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, enum1);
-		// Cliente modeloClienteNull = new Cliente(null, null, null, null,null);
-		listaClientes.add(modeloclientes);
-		// System.out.println(listaClientes);
-		// listaClientes.add(modeloClienteNull);
-	}
+		
+		
+		if(run.equals(null) && nombre.equals(null) && apellido.equals(null) && anio.equals(null)) {
+			System.out.println("entro aca");
+			Cliente modeloClienteNulo = new Cliente(null,null,null,null,null);
+			System.out.println(modeloClienteNulo);
+		}else {
+			
+			Cliente modeloclientes = new Cliente(run, nombre, apellido, anio, enum1);
+			listaClientes.add(modeloclientes);
+			
+			
+		}
+		
+		
+	} 
+
 
 	public void retornoListaImportado(List<Cliente> lista2) {
 		
