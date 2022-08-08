@@ -26,6 +26,7 @@ public class Menu {
 	Cliente cliente = new Cliente();
 	Scanner leer = new Scanner(System.in);
 	int opcion = 0;
+	boolean valid = true;
 	String respuesta;
 	String ruta;
 	
@@ -54,7 +55,23 @@ public class Menu {
 			System.out.println("5.- Exportar Datos");
 			System.out.println("6.- Salir");
 			System.out.println("Ingrese una opcion: ");
-			opcion = leer.nextInt();
+			
+			do {
+				try {
+					opcion = leer.nextInt();
+					valid = true;
+					if(opcion <1||opcion>6) {
+						System.out.println("El numero ingresado sale del parametro");
+						System.out.println("Intente nuevamente");
+					}
+				}catch(Exception e){
+					valid = false;
+					System.out.println("el dato ingresado no es válido");
+					System.out.println("Intente nuevamente");
+					leer.next();
+				}
+			}while(opcion <1||opcion>6||valid==false);
+			
 
 			switch (opcion) {
 			case 1: {

@@ -81,21 +81,20 @@ public class ClienteServicio {
 		System.out.println("Ingrese RUN del Cliente a editar:");
 		respuesta = leer.next();
 
-		System.out.println(respuesta);
-
 		Cliente cliente = buscarClientePorRun(respuesta);
 
 		if (cliente == null) {
 
 			System.out.println("Rut no existe");
 		} else {
-			System.out.println("------blaaaa------");
+			
 
 			do {
 				System.out.println("Seleccione que desea hacer: ");
 				System.out.println("1.-Cambiar el estado del Cliente");
 				System.out.println("2.-Editar los datos ingresados del Cliente");
 				System.out.println("Ingrese opcion: ");
+				
 				opcion = leer.nextInt();
 				switch (opcion) {
 				case 1:
